@@ -11,7 +11,7 @@ module.exports = {
                 next(err);
             } else{
                 for (let task of tasks) {
-                    taskList.push({id: task._id, task: task.tasks, description: task.description});
+                    taskList.push({id: task._id, task: task.task, description: task.task_desc});
                 }
                 res.json({status:"success", message: "Task list found!!!", data:{tasks: tasksList}});
                 

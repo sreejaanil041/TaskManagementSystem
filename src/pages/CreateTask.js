@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
-import {configpath} from '../utils/config';
+
 import {useHistory} from 'react-router-dom';
 
 export default function CreateTask() {
+  const configpath = 'http://localhost:4000';
+       
+
+  const task=()=> {task, useState('')};
+
+  const task_desc=()=> {task_desc,useState('')};
 
     
   AddTask=()=>{
     
     let data = new FormData();
 data.append('task', this.state.task);
-data.append('description', this.state.description);
+data.append('description', this.state.task_desc);
 
 
     // let formdata = {category:this.state.category, name:this.state.name, description:this.state.description, image:this.state.image}
@@ -38,7 +44,7 @@ this.props.history.push('/create/')
        }
        else{
 
-    axios.post(configpath, data,{
+    axios.post(configpath+'/create', data,{
       headers: {
       'Content-Type': 'application/json',
       //'Authorization': token
